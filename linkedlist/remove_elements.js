@@ -3,7 +3,7 @@
  *
  * Example
  * Given: 1 --> 2 --> 6 --> 3 --> 4 --> 5 --> 6, val = 6
- * Return: 1 --> 2 --> 3 --> 4 --> 5 
+ * Return: 1 --> 2 --> 3 --> 4 --> 5
  *
  */
 
@@ -21,11 +21,11 @@
  */
 var removeElements = function(head, val) {
     if(head === null) return null;
-    
+
     while(head && head.val === val) {
         head = head.next;
     }
-    
+
     var temp = head;
     while(temp && temp.next) {
         if (temp.next.val === val) {
@@ -34,6 +34,6 @@ var removeElements = function(head, val) {
             temp = temp.next;
         }
     }
-    
+
     return head;
 };
