@@ -3,6 +3,11 @@
  * return the summary of its ranges.
  * For example, given [0,1,2,4,5,7], return ["0->2","4->5","7"].
  */
+
+function format(a, b) {
+   return b ? a + '->' + b : a + '';
+}
+
 /**
  * @param {number[]} nums
  * @return {string[]}
@@ -17,9 +22,9 @@ var summaryRanges = function(nums) {
     for (last = 0, j = 1, len = nums.length; j < len; j++) {
         if (nums[j] !== nums[j - 1] + 1) {
             if (last === j - 1) {
-                result.push(nums[last] + '');
+                result.push(format(nums[last]));
             } else {
-                result.push(nums[last] + '->' + nums[j - 1]);
+                result.push(format(nums[last], nums[j - 1]));
             }
 
             last = j;
@@ -27,9 +32,9 @@ var summaryRanges = function(nums) {
 
         if (j === len - 1) {
             if (nums[j] === nums[j - 1] + 1) {
-                result.push(nums[last] + '->' + nums[j]);
+                result.push(format(nums[last],nums[j]));
             } else {
-                result.push("" + nums[j]);
+                result.push(format(nums[j]));
             }
         }
     }
