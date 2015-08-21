@@ -15,6 +15,7 @@ var majorityElement = function(nums) {
 
     var ml = Math.floor(nums.length / 2);
     var i, obj = {}, len = nums.length;
+
     for (i = 0; i < len; i++) {
         if (obj[nums[i]]) {
             obj[nums[i]] = obj[nums[i]] + 1;
